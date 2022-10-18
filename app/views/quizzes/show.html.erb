@@ -1,0 +1,18 @@
+<h1><%= @quiz.title %></h1>
+<ul>
+  <li><%= link_to "Edit", edit_quiz_path(@quiz) %></li>
+  <li><%= link_to "Destroy", quiz_path(@quiz),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+<% if @quiz.questions.count != 0 %>
+  <%= render @quiz.questions %> 
+<% end %>
+
+<h2>Add question</h2>
+<%= render 'questions/form' %>
+
+
+
+

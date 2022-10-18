@@ -1,0 +1,20 @@
+
+
+
+<%= form_for([@quiz, @question]) do |form| %>
+<%= form.hidden_field :quiz_id, value: @quiz.id%>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <%= form.submit %>
+<% end %>  
+  <%# <p>
+   <%= form.text_field :correct_answer, as: :boolean, checked_value: true, unchecked_value: false %>
+    
+  <%# </p>
+
+
+
+<%# <%= form_for([@post, @comment]) do |f| %>
+

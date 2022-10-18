@@ -1,0 +1,16 @@
+<% if question.body.present? %>
+<p>
+  <strong>Question:</strong>
+  
+  <%= link_to question.body, quiz_question_path(@quiz, question) %>
+  
+</p>
+
+<p>
+  <%= link_to '<button>Destroy Question</button>'.html_safe, [@question.quiz, question],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+</p>
+<%= link_to "<button>Edit Quiz Question</button>".html_safe, edit_quiz_question_path(@quiz, question) %>
+<% end %>
+

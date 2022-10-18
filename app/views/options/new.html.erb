@@ -1,0 +1,22 @@
+<%= form_for([@quiz, @question, @option]) do |form| %>
+  <%= form.hidden_field :question_id, value: @question.id%>
+  
+  <p>
+    <%= form.label :option1 %><br>
+    <%= form.text_field :option1 %>
+  </p>
+   <p>
+    <%= form.label :option2 %><br>
+    <%= form.text_field :option2 %>
+  </p>
+  <p>
+    <%= form.label :option3 %><br>
+    <%= form.text_field :option3 %>
+  </p>
+  <p>
+    <%= form.label :option4 %><br>
+    <%= form.text_field :option4 %>
+  </p>
+  <%= form.submit "Save Options" %>
+  
+<% end %>
