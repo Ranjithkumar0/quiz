@@ -1,4 +1,11 @@
-<h1><%= @question.option.option1 %></h1>
-<h1><%= @question.options.option2 %></h1>
-<h1><%= @question.options.option3 %></h1>
-<h1><%= @question.options.option4 %></h1>
+
+<ul>
+  <% Option.all.each do |option| %>
+  <table>
+    <li>
+       <p><%= option.option1 %></p>
+       <p><%= option.correct_key %></p>
+    </li>
+    </table>
+  <% end %>
+</ul>

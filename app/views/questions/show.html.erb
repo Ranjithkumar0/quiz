@@ -1,10 +1,7 @@
 <h1><%= @question.body %></h1>
-<% if @question.options.count != 0 %>
-  <%= render "options/show" %> 
+<% if @question.options.present? %>
+  <%= render "options/show", @option %> 
 <% end %>
 
-<h2><%= link_to "Add options", new_quiz_question_option_path(@quiz, @question, @option) %></h2>
-
-
-
+<%= link_to "Add options", new_quiz_question_option_path(@quiz, @question, @option) %>
 
