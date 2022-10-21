@@ -10,45 +10,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="grey lighten-2">
-	<nav class="blue accent-2">
-		<div class="nav-wrapper">
-			<a href="/" class="brand-logo center">Quiz App</a>
-			<%= link_to "menu", quizzes_path %>
-			<a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			<% if user_signed_in? %>
-			<ul class="right hide-on-med-and-down">
-				<li><%= current_user.name %></li>
-				<li><%= link_to '<i class="material-icons">exit_to_app</i>'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
-				<% if current_user.isadmin == true %>
-				<li><%= link_to "Admin Panel", rails_admin_path %></li>
-				<li><%= link_to "User Profile", home_leaderboard_path %></li>
-				<% end %>
+  <body>
+    <div class='navbar-link'>
+    <% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email%></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path%> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> |
+    <%= link_to "Login", new_user_session_path %>
+    <% end %>
+    </div>
 
-			</ul>
-			<ul class="side-nav" id="mobile-demo">
-				<li class="black-text  "><%= current_user.name %></li>
-				<li><%= link_to '<i class="material-icons">exit_to_app</i> Sign Out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
-				<% if current_user.isadmin == true %>
-				<li><%= link_to "Admin Panel", rails_admin_path %></li>
-				<li><%= link_to "User Profile", home_leaderboard_path %></li>
-				<% end %>
-			</ul>
-			<% else %>
-			<ul class="right hide-on-med-and-down">
-				<li>Login</li>
-				<li><%= link_to '<i class="material-icons">forward</i>'.html_safe, new_user_session_path %></li>
-			</ul>
-			<ul class="side-nav" id="mobile-demo">
-				<li><%= link_to '<i class="material-icons">forward</i> Login'.html_safe, new_user_session_path %></li>
-			</ul>
-			<% end %>
-		</div>
-	</nav>
-	<main>
-		<div class="container">
-			<%= yield %>
-		</div>
-	</main>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+	<%= yield %>
 </body>
 </html>

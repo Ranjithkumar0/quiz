@@ -18,10 +18,12 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
 
-    if @quiz.save
-      redirect_to @quiz
-    else
-      render :new
+    respond_to do |format|
+      if @quiz.save
+        format.html { redirect_to @quiz, notice: "Quiz created!" }
+      else
+        format.html { render action: 'new' }
+      end
     end
   end
 
@@ -31,7 +33,7 @@ class QuizzesController < ApplicationController
 
   def update
     @quiz = Quiz.find(params[:id])
-    if @quiz.update(quiz_params)
+    if @quiz.update_attributes(quiz_params)
       redirect_to @quiz
     else
       render :edit

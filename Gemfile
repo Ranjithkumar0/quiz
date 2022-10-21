@@ -59,4 +59,4 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'materialize-sass', '~> 1.0', '>= 1.0.0.1'
 gem 'material_icons', '~> 2.2', '>= 2.2.1'
 gem 'jquery-rails', '~> 4.5'
-gem 'rails_admin', '~> 3.0'
+

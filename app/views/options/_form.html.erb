@@ -1,0 +1,11 @@
+<ul>
+<%= form_with model: @option do |form| %>
+
+  <%= form.collection_radio_buttons  :option_id, question_options, :id, :option1 %>  
+
+<% end %>
+<%= submit_tag "Save Options", name: 'question_options[submit]'  %>
+</ul>
+
+  
+

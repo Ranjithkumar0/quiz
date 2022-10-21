@@ -1,4 +1,4 @@
-<%= form_with model: @quiz do |form| %>
+<%= form_with model: @quiz, url: quizzes_path, local: true do |form| %>
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -10,3 +10,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= link_to 'Back', quizzes_path %>

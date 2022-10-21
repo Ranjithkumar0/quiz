@@ -1,6 +1,6 @@
 
 <ul>
-  <% Option.all.each do |option| %>
+  <% question_options.all.each do |option| %>
   <table>
     <li>
        <p><%= option.option1 %></p>
@@ -9,3 +9,6 @@
     </table>
   <% end %>
 </ul>
+<p>
+<%= link_to 'Back to quiz', quizzes_path %>
+</p>

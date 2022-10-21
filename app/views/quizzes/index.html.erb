@@ -1,4 +1,8 @@
-<h1>Quizzes</h1>
+
+<div class = 'index'>
+<%= image_tag "quizlogo.jpg", height: 300 , width:500%>
+
+<h1 style="color:red">Quizzes</h1>
 <ul>
   <% @quizzes.each do |quiz| %>
     <li>
@@ -7,8 +11,10 @@
   <% end %>
 </ul>
 
+<% if current_user.isadmin? %>
 <%= link_to "New Quiz", new_quiz_path %> 
-
+<% end %>
+</div>
 
 
 
