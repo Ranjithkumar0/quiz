@@ -18,7 +18,7 @@
   <%= link_to 'Back to quiz', quizzes_path %>
   <% end %>
 <% else %>
-  <% if question.body.present? %>
+  <% if question.body.present?  %>
     <%= question.body %>
     <%= render partial: "options/form", locals: {question_options: question.options} %>  
   <% end %>

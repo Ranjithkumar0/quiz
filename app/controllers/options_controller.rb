@@ -13,6 +13,7 @@ class OptionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
     @option = @question.options.create(option_params)
+    
     if @option.save
         redirect_to quiz_question_path(@quiz, @question)
       else

@@ -1,11 +1,19 @@
 <ul>
-<%= form_with model: @option do |form| %>
+<% if question_options.present? %>
+<%= form_with(model: @user_answer, local:true) do |form| %>
 
   <%= form.collection_radio_buttons  :option_id, question_options, :id, :option1 %>  
 
 <% end %>
-<%= submit_tag "Save Options", name: 'question_options[submit]'  %>
+<% else %>
+<%= 'Options yet to be added'%>
+<% end %>
 </ul>
-
+<%= form_with(model: @user_answer, local:true) do |form| %>
+<%= form.submit %>
+<% end %>
   
+
+
+
 

@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   root "quizzes#index"
   resources :quizzes do 
     resources :questions do
-      resources :options 
+      resources :options do
+        resources :user_answers
+      end
     end
   end
 end
