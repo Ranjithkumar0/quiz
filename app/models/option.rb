@@ -1,4 +1,4 @@
-class Option < ApplicationRecords  
+class Option < ApplicationRecord
     belongs_to :question
     validates :option1, presence: true
     before_save :falsify_all_others

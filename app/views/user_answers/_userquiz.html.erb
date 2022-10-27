@@ -1,0 +1,19 @@
+
+<%= form_with url: quizzes_path, method: :get do |form| %>
+<ul>
+<% quiz_questions.each do |question| %>
+
+  <li><%= question.body %></li>
+  <% question.options.each_with_index do |option| %>
+  
+  <%= radio_button_tag("guess[#{question.id}]", option.option1, false) %>
+  <%= label_tag "#{option.option1}", option.option1 %>
+  
+  <% end %>
+<% end %>
+</ul>
+<%= form.submit "Submit" %>
+
+<% end %>
+
+

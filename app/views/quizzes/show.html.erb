@@ -1,11 +1,12 @@
 <h1><%= @quiz.title %></h1>
 
+
+<% if current_user.isadmin? %>
+
 <% if @quiz.questions.count != 0 %>
   <%= render @quiz.questions %> 
 <% end %>
 
-
-<% if current_user.isadmin? %>
 <h2>Add question</h2>
 <%= render 'questions/form' %>
 
@@ -15,8 +16,11 @@
                   method: :delete,
                   data: { confirm: "Are you sure?" } %></li>
 </ul>
+<% else %>
+
+    <% if @quiz.questions.count != 0 %>
+        <%= render partial: "user_answers/userquiz", :locals => {quiz_questions: @quiz.questions} %>
+    <% else %>
+        <%= 'Questions yet to be added' %>
+    <% end %>
 <% end %>
-
-
-
-

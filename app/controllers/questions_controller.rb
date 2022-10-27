@@ -42,9 +42,3 @@ class QuestionsController < ApplicationController
     end
 end
 
-# @comment = @event.comments.create(params[:comment].permit(:user_id, :body))
-
-# @article = Article.find(params[:article_id])
-#       @comment = @article.comments.find(params[:id])
-#       @comment.destroy
-#       redirect_to article_path(@article)
