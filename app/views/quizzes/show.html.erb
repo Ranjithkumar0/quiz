@@ -19,7 +19,8 @@
 <% else %>
 
     <% if @quiz.questions.count != 0 %>
-        <%= render partial: "user_answers/userquiz", :locals => {quiz_questions: @quiz.questions} %>
+        <%= render partial: "answer/createanswer", :locals => {quiz_questions: @quiz.questions} %>
+        
     <% else %>
         <%= 'Questions yet to be added' %>
     <% end %>
