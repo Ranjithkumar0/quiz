@@ -4,7 +4,7 @@ class Option < ApplicationRecord
     before_save :falsify_all_others
     def falsify_all_others
       if correct_key
-        self.class.where('id != ?', self.id).where('correct_key').update_all(:correct_key => false)
+        self.class.where('question_id != ?', self.id).where('correct_key').update_all(:correct_key => true)
       end
     end   
 end

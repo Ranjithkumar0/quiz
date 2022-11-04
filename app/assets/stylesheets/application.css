@@ -20,3 +20,7 @@
     text-align: center;
         display: block;
 }
+
+li{
+    list-style: none;
+}

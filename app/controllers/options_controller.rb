@@ -21,6 +21,14 @@ class OptionsController < ApplicationController
       end
   end
 
+  def destroy
+    @quiz = Quiz.find(params[:quiz_id])
+    @question = Question.find(params[:question_id])
+    @option = @question.options.find(params[:id])
+    @option.destroy
+    redirect_to root_path
+  end
+
   private
   def option_params
     params.require(:option).permit(:option1, :correct_key)
