@@ -1,5 +1,6 @@
 class Option < ApplicationRecord
     belongs_to :question
+    has_many :user_answers, dependent: :destroy
     validates :option1, presence: true
     before_save :falsify_all_others
     def falsify_all_others

@@ -19,8 +19,14 @@
 .index{
     text-align: center;
         display: block;
+        color: mediumvioletred;
 }
 
 li{
     list-style: none;
 }
+.card{
+    width: 380px;
+    border: none;
+  
+  }
